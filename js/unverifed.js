@@ -1,5 +1,5 @@
 async function getData() {
-    let request = await fetch("https://skboard.herokuapp.com/api/student/all")
+    let request = await fetch("https://skboard.herokuapp.com/api/unverified/all")
     let data = request.json();
     return data
 }
@@ -46,15 +46,17 @@ $(document).ready(() => {
                 </div>
                 <div class="col sm-6 align-self-center mx-auto"> 
                 <a href="./viewProfile.html?${student._id}">
-                <button type="button" class="card-button")> 
-                    View Profile
+                <button type="button" class="card-button" style="margin-bottom: 5px"> 
+                    &nbsp;View Profile
                 </button>
                 </a>
+                <button type="button" class="card-button btn-success" onclick=verifyProfile("${student._id}")> 
+                    Verify Profile   
+                </button>
                 <br>
-                <button type="button" class="card-button btn-danger" onclick=deleteProfile("${student._id}") style="margin-top: 5px"> 
+                <button type="button" class="card-button btn-danger" onclick=deleteUnverified("${student._id}") style="margin-top: 5px"> 
                   Delete   
                 </button>
-
               </div>
               <div class="mobile"></div> 
             </div>
